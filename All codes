@@ -182,7 +182,18 @@ plt.show()
 feat_importances = pd.Series(forest.feature_importances_, index=X_patients.columns)
 feat_importances.nlargest(14).plot(kind='barh')
 
-
+#Cross Validation
+from sklearn.model_selection import cross_val_score
+X = X_patients.as_matrix()
+y = y_patients.as_matrix()
+cv_scores = cross_val_score(clf1, X, y)
+print('Cross-validation scores (3-fold):', cv_scores)
+print('Mean cross-validation score (3-fold): {:.3f}'
+     .format(np.mean(cv_scores)))
+     
+     
+     
+     
 
 #Part 2: Live Measurement of Weight Changes:
 
