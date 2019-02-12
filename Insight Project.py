@@ -225,7 +225,7 @@ for x in users11:
         # make predictions
         predictions = model_fit.predict(start=len(train), end=len(train)+len(test)-1, dynamic=False)
         error = test.mean()- predictions.mean()
-        if error >0:
+        if error >10:
             print('User ID',x, 'has gained',"%.1f" %error,'pounds, in average, during the past month.')
         else:
             print('User ID',x, 'has lost',"%.1f" %error,'pounds, in average, during the past month.')
